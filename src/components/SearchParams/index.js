@@ -23,12 +23,6 @@ export default function SearchParams() {
     getData();
   }, []);
 
-  // const sortBy = (option) => {
-  //   const countriesCopy = [...countries];
-  //   countriesCopy.sort((a, b) => b[option] - a[option]);
-  //   return setCountries(countriesCopy);
-  // };
-
   const searchCountry = (e) => {
     e.preventDefault();
     setSearchedCountry("");
@@ -49,12 +43,6 @@ export default function SearchParams() {
 
   return (
     <div className="search__info-wrapper">
-      {/* <button onClick={() => sortBy("TotalConfirmed")}>
-          Sort by total cases
-        </button>
-        <button onClick={() => sortBy("NewConfirmed")}>
-          Sort by new cases
-        </button> */}
       <div className="search__info">
         <form className="search__info-form" onSubmit={searchCountry}>
           <TextField
@@ -77,14 +65,6 @@ export default function SearchParams() {
         newCases={searchedCountry.NewConfirmed}
         error={error}
       />
-      {/* {countries.map((country) => (
-          <CountryCard
-            key={country.Country}
-            countryName={country.Country}
-            totalCases={country.totalCases}
-            newCases={country.NewConfirmed}
-          />
-        ))} */}
     </div>
   );
 }
