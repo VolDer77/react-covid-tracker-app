@@ -1,0 +1,24 @@
+.country__name {
+  color: red;
+}
+
+.country__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  max-width: 600px;
+  min-height: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.country__info {
+  display: flex;
+  text-align: center;
+}
+
+span {
+  display: block;
+}

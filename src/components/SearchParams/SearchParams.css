@@ -1,0 +1,16 @@
+.search__info {
+  padding-top: 20px;
+}
+.search__info-wrapper {
+  background-color: #f8f8f8;
+  border-radius: 30px;
+  min-width: 800px;
+  min-height: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.search__info-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

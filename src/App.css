@@ -1,38 +1,10 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
+  background: url("https://www.nortonrosefulbright.com/-/media/images/nrf/thought-leadership/us/us-state-of-the-union-covid-19-now.jpg?la=en-id&revision=e4467f9a-da2f-45b0-9fe9-cc206009341d&hash=A2869E7E743A2882FCCE48C4EB73D20C4C512421");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
