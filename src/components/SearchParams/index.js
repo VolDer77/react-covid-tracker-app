@@ -1,15 +1,13 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import CountryCard from "../CountryCard";
 import "./SearchParams.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-export default function SearchParams({countries, date}) {
+export default function SearchParams({ countries, date }) {
   const [country, setCountry] = useState("");
   const [searchedCountry, setSearchedCountry] = useState([]);
   const [error, setError] = useState(false);
-  
-  console.log(countries);
 
   const searchCountry = (e) => {
     e.preventDefault();
@@ -47,7 +45,6 @@ export default function SearchParams({countries, date}) {
       <h2>By {date}</h2>
       {error && <h2>Country not found</h2>}
       <CountryCard
-        key={searchedCountry.CountryCode}
         countryName={searchedCountry.Country}
         totalCases={searchedCountry.TotalConfirmed}
         newCases={searchedCountry.NewConfirmed}

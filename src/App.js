@@ -26,8 +26,9 @@ function App() {
       <SearchParams countries={countries} date={date} totalInfo={totalInfo} />
       <TotalResults
         countries={countries}
-        total={totalInfo.TotalConfirmed}
+        totalConfirmed={totalInfo.TotalConfirmed}
         totalNewCases={totalInfo.NewConfirmed}
+        setCountries={setCountries}
       />
     </div>
   );
