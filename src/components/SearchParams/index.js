@@ -1,27 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import CountryCard from "../CountryCard";
 import "./SearchParams.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-export default function SearchParams() {
-  const [countries, setCountries] = useState([]);
-  const [date, setDate] = useState("");
+export default function SearchParams({countries, date}) {
   const [country, setCountry] = useState("");
   const [searchedCountry, setSearchedCountry] = useState([]);
   const [error, setError] = useState(false);
-
-  useEffect(() => {
-    async function getData() {
-      const response = await fetch("https://api.covid19api.com/summary");
-      const data = await response.json();
-      setCountries(data.Countries);
-      const date = new Date(data.Date);
-      setDate(date.toLocaleString());
-    }
-
-    getData();
-  }, []);
+  
+  console.log(countries);
 
   const searchCountry = (e) => {
     e.preventDefault();
@@ -29,7 +17,7 @@ export default function SearchParams() {
     countries
       .filter((elem) => {
         const success =
-          elem.Country.toLowerCase() === country.toLowerCase() ||
+          elem.Slug === country.toLowerCase() ||
           elem.CountryCode.toLowerCase() === country.toLowerCase();
         return success ? success : setError(true);
       })
@@ -63,7 +51,10 @@ export default function SearchParams() {
         countryName={searchedCountry.Country}
         totalCases={searchedCountry.TotalConfirmed}
         newCases={searchedCountry.NewConfirmed}
-        error={error}
+        totalDeaths={searchedCountry.TotalDeaths}
+        newDeaths={searchedCountry.NewDeaths}
+        totalRecovered={searchedCountry.TotalRecovered}
+        newRecovered={searchedCountry.NewRecovered}
       />
     </div>
   );

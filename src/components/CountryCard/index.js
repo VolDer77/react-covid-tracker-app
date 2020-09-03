@@ -2,7 +2,15 @@ import React from "react";
 import "./CountryCard.css";
 
 export default function CountryCard(props) {
-  const { countryName, totalCases, newCases } = props;
+  const {
+    countryName,
+    totalCases,
+    newCases,
+    totalDeaths,
+    newDeaths,
+    totalRecovered,
+    newRecovered,
+  } = props;
 
   return (
     <div>
@@ -15,6 +23,18 @@ export default function CountryCard(props) {
             </h3>
             <h3>
               New confirmed: <span>{newCases}</span>
+            </h3>
+            <h3>
+              Total deaths: <span>{totalDeaths}</span>
+            </h3>
+            <h3>
+              New deaths: <span>{newDeaths}</span>
+            </h3>
+            <h3>
+              Total recovered: <span>{totalRecovered}</span>
+            </h3>
+            <h3>
+              New recovered: <span>{newRecovered}</span>
             </h3>
           </div>
         </div>

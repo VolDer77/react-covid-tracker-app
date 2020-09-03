@@ -16,7 +16,12 @@
 
 .country__info {
   display: flex;
-  text-align: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.country__info > h3 {
+  flex-basis: 50%;
 }
 
 span {
