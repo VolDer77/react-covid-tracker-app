@@ -7,6 +7,7 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [totalInfo, setTotalInfo] = useState([]);
   const [date, setDate] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getData() {
@@ -16,6 +17,7 @@ function App() {
       setTotalInfo(data.Global);
       const date = new Date(data.Date);
       setDate(date.toLocaleString());
+      setLoading(false);
     }
 
     getData();
@@ -23,12 +25,17 @@ function App() {
 
   return (
     <div className="App">
-      <SearchParams countries={countries} date={date} totalInfo={totalInfo} />
+      <SearchParams
+        countries={countries}
+        date={date}
+        totalInfo={totalInfo}
+        loading={loading} />
       <TotalResults
         countries={countries}
         totalConfirmed={totalInfo.TotalConfirmed}
         totalNewCases={totalInfo.NewConfirmed}
         setCountries={setCountries}
+        loading={loading}
       />
     </div>
   );

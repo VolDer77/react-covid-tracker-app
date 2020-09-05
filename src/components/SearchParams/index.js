@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import CountryCard from "../CountryCard";
+import Loader from "../Loader";
 import "./SearchParams.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-export default function SearchParams({ countries, date }) {
+export default function SearchParams({ countries, date, loading }) {
   const [country, setCountry] = useState("");
   const [searchedCountry, setSearchedCountry] = useState([]);
   const [error, setError] = useState(false);
+
 
   const searchCountry = (e) => {
     e.preventDefault();
@@ -42,17 +44,21 @@ export default function SearchParams({ countries, date }) {
           </Button>
         </form>
       </div>
-      <h2>By {date}</h2>
-      {error && <h2>Country not found</h2>}
-      <CountryCard
-        countryName={searchedCountry.Country}
-        totalCases={searchedCountry.TotalConfirmed}
-        newCases={searchedCountry.NewConfirmed}
-        totalDeaths={searchedCountry.TotalDeaths}
-        newDeaths={searchedCountry.NewDeaths}
-        totalRecovered={searchedCountry.TotalRecovered}
-        newRecovered={searchedCountry.NewRecovered}
-      />
+
+      {loading ? <Loader /> :
+        <>
+          <h2>By {date}</h2>
+          {error && <h2>Country not found</h2>}
+          {searchedCountry.Country && <CountryCard
+            countryName={searchedCountry.Country}
+            totalCases={searchedCountry.TotalConfirmed}
+            newCases={searchedCountry.NewConfirmed}
+            totalDeaths={searchedCountry.TotalDeaths}
+            newDeaths={searchedCountry.NewDeaths}
+            totalRecovered={searchedCountry.TotalRecovered}
+            newRecovered={searchedCountry.NewRecovered}
+          />}
+        </>}
     </div>
   );
 }
