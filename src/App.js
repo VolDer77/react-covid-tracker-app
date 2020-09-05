@@ -35,7 +35,7 @@ function App() {
         totalConfirmed={totalInfo.TotalConfirmed}
         totalNewCases={totalInfo.NewConfirmed}
         setCountries={setCountries}
-        loading={loading}
+        loading={loading} 
       />
     </div>
   );
